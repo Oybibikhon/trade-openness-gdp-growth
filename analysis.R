@@ -27,7 +27,10 @@ summary(panel_data)
 # 2. GDP Growth by Country
 # ============================================================
 
-ggplot(panel_data, aes(x = Year, y = GDP_Growth, color = Country)) +
+p1 <- ggplot(
+  panel_data,
+  aes(x = Year, y = GDP_Growth, color = Country)
+) +
   geom_line(linewidth = 1) +
   geom_point(size = 1.5) +
   labs(
@@ -38,8 +41,11 @@ ggplot(panel_data, aes(x = Year, y = GDP_Growth, color = Country)) +
   ) +
   theme_minimal()
 
+p1
+
 ggsave(
   "figures/gdp_growth.png",
+  plot = p1,
   width = 10,
   height = 6,
   dpi = 300
@@ -50,7 +56,10 @@ ggsave(
 # 3. Trade Openness by Country
 # ============================================================
 
-ggplot(panel_data, aes(x = Year, y = Trade_Openness, color = Country)) +
+p2 <- ggplot(
+  panel_data,
+  aes(x = Year, y = Trade_Openness, color = Country)
+) +
   geom_line(linewidth = 1) +
   geom_point(size = 1.5) +
   labs(
@@ -61,8 +70,11 @@ ggplot(panel_data, aes(x = Year, y = Trade_Openness, color = Country)) +
   ) +
   theme_minimal()
 
+p2
+
 ggsave(
   "figures/trade_openness.png",
+  plot = p2,
   width = 10,
   height = 6,
   dpi = 300
@@ -73,7 +85,10 @@ ggsave(
 # 4. Relationship Between Trade Openness and GDP Growth
 # ============================================================
 
-ggplot(panel_data, aes(x = Trade_Openness, y = GDP_Growth)) +
+p3 <- ggplot(
+  panel_data,
+  aes(x = Trade_Openness, y = GDP_Growth)
+) +
   geom_point(aes(color = Country), alpha = 0.7) +
   geom_smooth(method = "lm", se = TRUE) +
   labs(
@@ -84,8 +99,11 @@ ggplot(panel_data, aes(x = Trade_Openness, y = GDP_Growth)) +
   ) +
   theme_minimal()
 
+p3
+
 ggsave(
   "figures/trade_openness_gdp_growth.png",
+  plot = p3,
   width = 10,
   height = 6,
   dpi = 300
